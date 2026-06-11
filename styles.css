@@ -71,9 +71,7 @@ h1 {
 }
 
 .icon-button,
-.segments button,
-.secondary-button,
-.file-picker span {
+.segments button {
   border: 1px solid var(--line);
   background: rgba(255, 250, 240, 0.82);
   color: var(--ink);
@@ -92,8 +90,6 @@ h1 {
 
 .icon-button:hover,
 .segments button:hover,
-.secondary-button:hover,
-.file-picker:hover span,
 select:hover {
   transform: translateY(-1px);
   border-color: var(--accent);
@@ -136,10 +132,6 @@ select:hover {
   margin-top: 22px;
 }
 
-.importer {
-  margin-top: 22px;
-}
-
 .filters h2,
 .list-head h2,
 .detail h2 {
@@ -165,51 +157,6 @@ select {
   background: white;
   color: var(--ink);
   padding: 0 12px;
-}
-
-.file-picker {
-  display: block;
-  cursor: pointer;
-}
-
-.file-picker input {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.file-picker span,
-.secondary-button {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  min-height: 42px;
-  border-radius: 8px;
-  font-weight: 800;
-}
-
-.file-picker span {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: white;
-}
-
-.secondary-button {
-  margin-top: 8px;
-}
-
-.status {
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-.status.error {
-  color: var(--red);
-  font-weight: 700;
 }
 
 input:focus,
@@ -281,17 +228,6 @@ button:focus-visible {
 
 .changelog-head h2 {
   margin-bottom: 0;
-}
-
-.secondary-button.compact {
-  width: auto;
-  min-height: 34px;
-  margin-top: 0;
-}
-
-.secondary-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.55;
 }
 
 .changelog-list {
