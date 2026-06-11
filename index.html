@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>卡牌资料 Wiki</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Card Wiki Prototype</p>
+        <h1>卡牌资料库</h1>
+      </div>
+      <div class="header-actions" role="group" aria-label="语言切换">
+        <button class="icon-button active" id="langCn" type="button" aria-pressed="true" title="中文">中</button>
+        <button class="icon-button" id="langEn" type="button" aria-pressed="false" title="English">EN</button>
+      </div>
+    </header>
+
+    <main class="shell">
+      <aside class="panel filters" aria-label="筛选">
+        <label class="search">
+          <span>搜索</span>
+          <input id="searchInput" type="search" placeholder="卡名、ID、效果文本">
+        </label>
+
+        <section class="importer">
+          <h2>数据维护</h2>
+          <label class="file-picker">
+            <input id="csvInput" type="file" accept=".csv,text/csv">
+            <span>上传 CSV 表格</span>
+          </label>
+          <button class="secondary-button" id="resetData" type="button">恢复初始数据</button>
+          <p class="status" id="importStatus">当前使用内置数据。</p>
+        </section>
+
+        <section>
+          <h2>分类</h2>
+          <div class="segments" id="typeFilters"></div>
+        </section>
+
+        <section>
+          <h2>统计</h2>
+          <dl class="stats">
+            <div>
+              <dt>总数</dt>
+              <dd id="totalCount">0</dd>
+            </div>
+            <div>
+              <dt>当前显示</dt>
+              <dd id="visibleCount">0</dd>
+            </div>
+          </dl>
+        </section>
+      </aside>
+
+      <section class="content" aria-label="卡牌列表">
+        <div class="list-head">
+          <div>
+            <p class="eyebrow">Browse</p>
+            <h2 id="listTitle">全部卡牌</h2>
+          </div>
+          <select id="sortSelect" aria-label="排序">
+            <option value="id">按 ID</option>
+            <option value="name">按名称</option>
+          </select>
+        </div>
+        <div class="card-grid" id="cardGrid"></div>
+        <p class="empty" id="emptyState" hidden>没有找到匹配的卡牌。</p>
+      </section>
+
+      <aside class="panel detail" id="detailPanel" aria-label="卡牌详情">
+        <div class="detail-art" id="detailArt">A</div>
+        <p class="eyebrow" id="detailType">卡牌</p>
+        <h2 id="detailName">选择一张卡牌</h2>
+        <p class="subname" id="detailSubname">点击列表中的卡牌查看详情</p>
+        <div class="effect-box">
+          <span>中文效果</span>
+          <p id="detailEffectCn">卡牌中文效果会显示在这里。</p>
+        </div>
+        <div class="effect-box english-effect">
+          <span>English Effect</span>
+          <p id="detailEffectEn">The English card effect appears here.</p>
+        </div>
+        <dl class="meta">
+          <div>
+            <dt>ID</dt>
+            <dd id="detailId">-</dd>
+          </div>
+          <div>
+            <dt>英文名</dt>
+            <dd id="detailEnName">-</dd>
+          </div>
+        </dl>
+      </aside>
+    </main>
+
+    <script src="cards-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
