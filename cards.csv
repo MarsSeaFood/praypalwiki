@@ -103,9 +103,9 @@ A030+,神力灌注+,Divine Infusion+,立即触发一个“代行者”的场上�
 A031,神之呓语,Divine Whisper,使当日该单位场上施加信仰时，同时额外造成等同于信仰值的伤害,"This day, whenever this unit applies Faith, it also deals equal damage."
 A031+,神之呓语+,Divine Whisper+,使当日该单位场上施加信仰时，同时额外造成等同于信仰值的伤害,"This day, whenever this unit applies Faith, it also deals equal damage."
 A032,时间停滞,Time Stop,立即触发场上所有单位的每日开始和每日结束效果一次,Trigger all units' Start of Day and End of Day effects 1 time.
-A032+,时间停滞+,Time Stop+,立即触发场上所有单位的每日开始和每日结束效果一次,[Needs Review] 立即触发场上所有单位的每日开始和每日结束效果一次
-A033,降临,Advent,替换一个4级及以下的场上单位为“化身”,[Needs Review] 替换一个4级及以下的场上单位为“化身”
-A033+,降临+,Advent+,替换一个4级及以下的场上单位为“化身”,[Needs Review] 替换一个4级及以下的场上单位为“化身”
+A032+,时间停滞+,Time Stop+,立即触发场上所有单位的每日开始和每日结束效果一次,Trigger all units' Start of Day and End of Day effects 1 time.
+A033,降临,Advent,替换一个4级及以下的场上单位为“化身”,Replace a level 4 or lower unit with Avatar.
+A033+,降临+,Advent+,替换一个4级及以下的场上单位为“化身”,Replace a level 4 or lower unit with Avatar.
 A034,奉献,Offering,指定一个“代行者”死亡，临时神力+1,"Kill an Apostle.
 Gain 1 temporary Divinity."
 A034+,奉献+,Offering+,指定一个“代行者”死亡，临时神力+2,"Kill an Apostle.
