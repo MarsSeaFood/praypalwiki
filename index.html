@@ -31,8 +31,8 @@
             <input id="csvInput" type="file" accept=".csv,text/csv">
             <span>上传 CSV 表格</span>
           </label>
-          <button class="secondary-button" id="resetData" type="button">恢复初始数据</button>
-          <p class="status" id="importStatus">当前使用内置数据。</p>
+          <button class="secondary-button" id="resetData" type="button">使用仓库数据</button>
+          <p class="status" id="importStatus">正在读取数据。</p>
         </section>
 
         <section>
@@ -66,6 +66,16 @@
             <option value="name">按名称</option>
           </select>
         </div>
+        <section class="changelog" aria-label="更新记录">
+          <div class="changelog-head">
+            <div>
+              <p class="eyebrow">Changelog</p>
+              <h2>更新记录</h2>
+            </div>
+            <button class="secondary-button compact" id="clearChangelog" type="button">清空记录</button>
+          </div>
+          <div class="changelog-list" id="changelogList"></div>
+        </section>
         <div class="card-grid" id="cardGrid"></div>
         <p class="empty" id="emptyState" hidden>没有找到匹配的卡牌。</p>
       </section>

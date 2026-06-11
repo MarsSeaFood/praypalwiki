@@ -1,7 +1,10 @@
 (function () {
   const storageKey = "cardWikiData:v1";
+  const changelogKey = "cardWikiChangelog:v1";
   const builtInCards = normalizeCards(window.CARD_WIKI_DATA || []);
   let cards = loadStoredCards() || builtInCards;
+  let changelog = [];
+  let changelogMode = "public";
 
   const state = {
     lang: "cn",
@@ -18,6 +21,8 @@
     csvInput: document.querySelector("#csvInput"),
     resetData: document.querySelector("#resetData"),
     importStatus: document.querySelector("#importStatus"),
+    clearChangelog: document.querySelector("#clearChangelog"),
+    changelogList: document.querySelector("#changelogList"),
     typeFilters: document.querySelector("#typeFilters"),
     sort: document.querySelector("#sortSelect"),
     grid: document.querySelector("#cardGrid"),
@@ -39,8 +44,9 @@
 
   renderTypeFilters();
   bindEvents();
-  updateImportStatus(loadStoredCards() ? "已加载你上次上传的表格数据。" : "当前使用内置数据。", false);
+  updateImportStatus("正在读取仓库数据。", false);
   render();
+  loadSiteData();
 
   function bindEvents() {
     els.langCn.addEventListener("click", () => setLang("cn"));
@@ -55,6 +61,43 @@
     });
     els.csvInput.addEventListener("change", handleCsvUpload);
     els.resetData.addEventListener("click", resetData);
+    els.clearChangelog.addEventListener("click", clearChangelog);
+  }
+
+  async function loadSiteData() {
+    const storedCards = loadStoredCards();
+    if (storedCards) {
+      cards = storedCards;
+      changelog = loadLocalChangelog();
+      changelogMode = "local";
+      state.selectedId = cards[0]?.id || "";
+      renderTypeFilters();
+      render();
+      updateImportStatus("已加载你在本浏览器上传的临时数据。", false);
+      return;
+    }
+
+    try {
+      const [csvText, publicChangelog] = await Promise.all([
+        fetchText("cards.csv"),
+        fetchJson("changelog.json"),
+      ]);
+      const rows = parseCsv(csvText);
+      validateCsvRows(rows);
+      cards = normalizeCards(rows);
+      validateCards(cards);
+      changelog = Array.isArray(publicChangelog) ? publicChangelog : [];
+      changelogMode = "public";
+      state.selectedId = cards[0]?.id || "";
+      renderTypeFilters();
+      render();
+      updateImportStatus("已读取仓库 cards.csv。公共更新记录由 GitHub Action 自动生成。", false);
+    } catch (error) {
+      changelog = loadLocalChangelog();
+      changelogMode = "local";
+      render();
+      updateImportStatus("未读取到仓库 CSV，当前使用内置数据。", false);
+    }
   }
 
   function setLang(lang) {
@@ -102,6 +145,7 @@
 
     els.grid.innerHTML = "";
     visible.forEach((card) => els.grid.append(renderCard(card)));
+    renderChangelog();
     renderDetail(selected);
   }
 
@@ -118,13 +162,18 @@
         validateCsvRows(rows);
         const importedCards = normalizeCards(rows);
         validateCards(importedCards);
+        addChangelogEntry({
+          action: "上传 CSV",
+          source: file.name,
+          changes: compareCards(cards, importedCards),
+        });
         cards = importedCards;
         state.type = "all";
         state.selectedId = cards[0]?.id || "";
         localStorage.setItem(storageKey, JSON.stringify(importedCards.map(stripType)));
         renderTypeFilters();
         render();
-        updateImportStatus(`已导入 ${cards.length} 张卡牌：${file.name}`, false);
+        updateImportStatus(`已导入 ${cards.length} 张卡牌：${file.name}。这是本浏览器临时数据；公开维护请上传 cards.csv 到 GitHub。`, false);
       } catch (error) {
         updateImportStatus(error.message || "导入失败，请检查表格格式。", true);
       } finally {
@@ -136,13 +185,132 @@
   }
 
   function resetData() {
-    cards = builtInCards;
-    state.type = "all";
-    state.selectedId = cards[0]?.id || "";
     localStorage.removeItem(storageKey);
-    renderTypeFilters();
-    render();
-    updateImportStatus("已恢复初始数据。", false);
+    localStorage.removeItem(changelogKey);
+    changelog = [];
+    changelogMode = "public";
+    state.type = "all";
+    updateImportStatus("正在切回仓库数据。", false);
+    loadSiteData();
+  }
+
+  function addChangelogEntry(entry) {
+    changelogMode = "local";
+    changelog.unshift({
+      id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      time: new Date().toISOString(),
+      ...entry,
+    });
+    changelog = changelog.slice(0, 30);
+    localStorage.setItem(changelogKey, JSON.stringify(changelog));
+  }
+
+  function renderChangelog() {
+    els.clearChangelog.hidden = changelogMode !== "local";
+    els.clearChangelog.disabled = changelog.length === 0;
+    els.changelogList.innerHTML = "";
+
+    if (!changelog.length) {
+      const empty = document.createElement("p");
+      empty.className = "changelog-empty";
+      empty.textContent = changelogMode === "public" ? "还没有由 GitHub Action 生成的公共更新记录。" : "还没有维护记录。";
+      els.changelogList.append(empty);
+      return;
+    }
+
+    changelog.forEach((entry) => {
+      const item = document.createElement("article");
+      item.className = "changelog-item";
+
+      const summary = entry.changes.summary;
+      const commitLink = entry.commitUrl
+        ? `<a href="${escapeHtml(entry.commitUrl)}" target="_blank" rel="noreferrer">查看提交</a>`
+        : "";
+      item.innerHTML = `
+        <div class="changelog-title">
+          <strong>${escapeHtml(entry.action)}</strong>
+          <time datetime="${escapeHtml(entry.time)}">${escapeHtml(formatTime(entry.time))}</time>
+        </div>
+        <p>${escapeHtml(entry.source || "数据维护")}</p>
+        <p class="change-summary">新增 ${summary.added}，删除 ${summary.removed}，修改 ${summary.updated}，未变 ${summary.unchanged}</p>
+        ${renderChangeDetails(entry.changes)}
+        ${commitLink}
+      `;
+      els.changelogList.append(item);
+    });
+  }
+
+  function renderChangeDetails(changes) {
+    const lines = [
+      ...changes.added.map((card) => `新增：${card.id} ${card.cardname_cn || card.cardname_en}`),
+      ...changes.removed.map((card) => `删除：${card.id} ${card.cardname_cn || card.cardname_en}`),
+      ...changes.updated.map((change) => {
+        const fields = change.fields.map((field) => getFieldLabel(field)).join("、");
+        return `修改：${change.after.id} ${change.after.cardname_cn || change.after.cardname_en}（${fields}）`;
+      }),
+    ];
+
+    if (!lines.length) {
+      return '<p class="change-detail">没有检测到卡牌内容变化。</p>';
+    }
+
+    return `
+      <ul class="change-detail">
+        ${lines.slice(0, 12).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}
+        ${lines.length > 12 ? `<li>${escapeHtml(`还有 ${lines.length - 12} 项变化未展开`)}</li>` : ""}
+      </ul>
+    `;
+  }
+
+  function compareCards(previousCards, nextCards) {
+    const previousMap = new Map(previousCards.map((card) => [card.id, stripType(card)]));
+    const nextMap = new Map(nextCards.map((card) => [card.id, stripType(card)]));
+    const fields = ["cardname_cn", "cardname_en", "cardeffect_cn", "cardeffect_en"];
+    const added = [];
+    const removed = [];
+    const updated = [];
+    let unchanged = 0;
+
+    nextMap.forEach((nextCard, id) => {
+      const previousCard = previousMap.get(id);
+      if (!previousCard) {
+        added.push(nextCard);
+        return;
+      }
+
+      const changedFields = fields.filter((field) => previousCard[field] !== nextCard[field]);
+      if (changedFields.length) {
+        updated.push({ before: previousCard, after: nextCard, fields: changedFields });
+      } else {
+        unchanged += 1;
+      }
+    });
+
+    previousMap.forEach((previousCard, id) => {
+      if (!nextMap.has(id)) {
+        removed.push(previousCard);
+      }
+    });
+
+    return {
+      summary: {
+        added: added.length,
+        removed: removed.length,
+        updated: updated.length,
+        unchanged,
+      },
+      added,
+      removed,
+      updated,
+    };
+  }
+
+  function clearChangelog() {
+    if (changelogMode === "local") {
+      changelog = [];
+      localStorage.removeItem(changelogKey);
+      renderChangelog();
+    }
   }
 
   function parseCsv(text) {
@@ -237,6 +405,16 @@
     }
   }
 
+  function loadLocalChangelog() {
+    try {
+      const raw = localStorage.getItem(changelogKey);
+      return raw ? JSON.parse(raw) : [];
+    } catch (error) {
+      localStorage.removeItem(changelogKey);
+      return [];
+    }
+  }
+
   function stripType(card) {
     const { type, ...rest } = card;
     return rest;
@@ -245,6 +423,26 @@
   function updateImportStatus(message, isError) {
     els.importStatus.textContent = message;
     els.importStatus.classList.toggle("error", isError);
+  }
+
+  async function fetchText(url) {
+    const response = await fetch(`${url}?v=${Date.now()}`);
+    if (!response.ok) {
+      throw new Error(`读取失败：${url}`);
+    }
+    return response.text();
+  }
+
+  async function fetchJson(url) {
+    try {
+      const response = await fetch(`${url}?v=${Date.now()}`);
+      if (!response.ok) {
+        return [];
+      }
+      return response.json();
+    } catch (error) {
+      return [];
+    }
   }
 
   function getTypeOrder() {
@@ -337,6 +535,27 @@
       other: "其他",
     };
     return labels[key] || key;
+  }
+
+  function getFieldLabel(field) {
+    const labels = {
+      cardname_cn: "中文名",
+      cardname_en: "英文名",
+      cardeffect_cn: "中文效果",
+      cardeffect_en: "英文效果",
+    };
+    return labels[field] || field;
+  }
+
+  function formatTime(value) {
+    return new Intl.DateTimeFormat("zh-CN", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    }).format(new Date(value));
   }
 
   function getArtGlyph(card) {

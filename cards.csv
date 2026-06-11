@@ -1,0 +1,198 @@
+id,cardname_cn,cardname_en,cardeffect_cn,cardeffect_en
+A001,祝福,Bless,施加5点信仰,Apply 5 Faith.
+A001+,祝福+,Bless+,施加7点信仰,Apply 7 Faith.
+A002,惩罚,Punishment,造成3点伤害,Deal 3 damage.
+A002+,惩罚+,Punishment+,造成5点伤害,Deal 5 damage.
+A003,时间流逝,Passage of Time,立即触发场上指定凡人的每日开始时和每日结束时效果1次,Trigger a mortal's Start of Day and End of Day effects 1 time.
+A003+,时间流逝+,Passage of Time+,立即触发场上指定凡人的每日开始时和每日结束时效果1次,Trigger a mortal's Start of Day and End of Day effects 1 time.
+A004,启悟,Awakening,当日获得1点临时神力,Gain 1 temporary Divinity this day.
+A004+,启悟+,Awakening+,当日获得1点临时神力,Gain 1 temporary Divinity this day.
+A005,烙印,Brand,"施加3点信仰
+如果成功转化该凡人，该位置生成一个“代行者”","Apply 3 Faith.
+If converted, summon an Apostle here."
+A005+,烙印+,Brand+,"施加5点信仰 如果成功转化该凡人
+该位置生成一个“代行者”","Apply 5 Faith.
+If converted, summon an Apostle here."
+A006,浸染,Taint,施加4点信仰，对其他同名凡人施加1点信仰,"Apply 4 Faith.
+Apply 1 Faith to all mortals with the same name."
+A006+,浸染+,Taint+,施加5点信仰，对其他同名凡人施加2点信仰,"Apply 5 Faith.
+Apply 2 Faith to all mortals with the same name."
+A007,织命,Weave Fate,交换凡人的位置，并对他们施加4点信仰,"Swap two mortals.
+Apply 4 Faith to both."
+A007+,织命+,Weave Fate+,交换凡人的位置，并对他们施加6点信仰,"Swap two mortals.
+Apply 6 Faith to both."
+A008,福音,Gospel,施加2点信仰，如果成功转化凡人，本场战斗内施加的信仰+1,"Apply 2 Faith.
+If converted, Faith you apply this combat is increased by 1."
+A008+,福音+,Gospel+,施加2点信仰，如果成功转化凡人，本场战斗内施加的信仰+2,"Apply 2 Faith.
+If converted, Faith you apply this combat is increased by 2."
+A009,恩赐,Grace,施加4点信仰，回复2点生命值,"Apply 4 Faith.
+Heal 2 HP."
+A009+,恩赐+,Grace+,施加6点信仰，回复4点生命值,"Apply 6 Faith.
+Heal 4 HP."
+A010,征服,Conquest,造成2点伤害，施加7点信仰,"Deal 2 damage.
+Apply 7 Faith."
+A010+,征服+,Conquest+,造成3点伤害，施加10点信仰,"Deal 3 damage.
+Apply 10 Faith."
+A011,洞悉,Insight,抽2张权柄，然后舍弃1张权柄,"Draw 2 Authority cards.
+Discard 1 card."
+A011+,洞悉+,Insight+,抽3张权柄，然后舍弃1张权柄,"Draw 3 Authority cards.
+Discard 1 card."
+A012,酝酿,Meditate,舍弃1张权柄，下一日获得1点临时神力,"Discard 1 Authority.
+Next day, gain 1 temporary Divinity."
+A012+,酝酿+,Meditate+,舍弃2张权柄，下一日获得2点临时神力,"Discard 2 Authority.
+Next day, gain 2 temporary Divinity."
+A013,圣光,Holy Light,"施加6点信仰
+如果成功转化该凡人，会对这个凡人身边的四个单位施加3点信仰","Apply 6 Faith.
+If converted, apply 3 Faith to adjacent units."
+A013+,圣光+,Holy Light+,"施加8点信仰
+如果成功转化该凡人，会对这个凡人身边的四个单位施加4点信仰","Apply 8 Faith.
+If converted, apply 4 Faith to adjacent units."
+A014,汲取,Drain,施加4点信仰，并抽1张权柄,Apply 4 Faith. Draw 1 Authority card.
+A014+,汲取+,Drain+,施加5点信仰，并抽2张权柄,"Apply 5 Faith.
+Draw 2 Authority cards."
+A015,传道,Preach,施加4点信仰,Apply 4 Faith.
+A015+,传道+,Preach+,施加6点信仰,Apply 6 Faith.
+A016,甘霖,Blessed Rain,施加1点信仰,Apply 1 Faith.
+A016+,甘霖+,Blessed Rain+,施加1点信仰,Apply 1 Faith.
+A017,虔诚,Devotion,施加场上“代行者”数量*2的信仰值,Apply Faith equal to Apostles ×2.
+A017+,虔诚+,Devotion+,施加场上“代行者”数量*3的信仰值,Apply Faith equal to Apostles ×3.
+A018,无尽低语,Endless Whisper,施加1点信仰，如果成功转化凡人，再施加1点信仰,"Apply 1 Faith.
+If converted, apply 1 more Faith."
+A018+,无尽低语+,Endless Whisper+,施加1点信仰，如果成功转化凡人，再施加1点信仰,"Apply 1 Faith.
+If converted, apply 1 more Faith."
+A019,字字珠玑,Words of Wisdom,施加8点信仰，当日每打出1张权柄，使这个单位信仰+2,"Apply 8 Faith.
+Whenever you play a card this day, this unit gains 2 Faith."
+A019+,字字珠玑+,Words of Wisdom+,施加10点信仰，当日每打出1张权柄，使这个单位信仰+3,"Apply 10 Faith.
+Whenever you play a card this day, this unit gains 3 Faith."
+A020,狂热,Zeal,舍弃1张权柄，施加8点信仰,"Discard 1 Authority.
+Apply 8 Faith."
+A020+,狂热+,Zeal+,舍弃1张权柄，施加11点信仰,"Discard 1 Authority.
+Apply 11 Faith."
+A021,恩威并施,Carrot and Stick,使下一张权柄，施加信仰的同时，造成等额的伤害,The next Authority that applies Faith also deals equal damage.
+A021+,恩威并施+,Carrot and Stick+,使下一张权柄，施加信仰的同时，造成等额的伤害,The next Authority that applies Faith also deals equal damage.
+A022,共命,Shared Fate,指定两个单位，他们互相视作在彼此身边,Choose 2 units. They count as adjacent to each other.
+A022+,共命+,Shared Fate+,指定两个单位，他们互相视作在彼此身边,Choose 2 units. They count as adjacent to each other.
+A023,恩泽,Benevolence,使指定的同名单位回复2点生命值,Heal all units with the same name by 2 HP.
+A023+,恩泽+,Benevolence+,使指定的同名单位回复4点生命值,Heal all units with the same name by 4 HP.
+A024,神隐,Divine Veil,随机与场上一个四级及以下的单位交换位置，并恢复2点生命值,"Swap positions with a random level 4 or lower unit.
+Heal 2 HP."
+A024+,神隐+,Divine Veil+,随机与场上一个四级及以下的单位交换位置，并恢复2点生命值,"Swap positions with a random level 4 or lower unit.
+Heal 2 HP."
+A025,祭祀,Sacrifice,消耗牌库顶上的1张权柄，获得1点临时神力，从弃卡堆中选择1张权柄加入手牌,"Exhaust the top Authority in your draw pile.
+Gain 1 temporary Divinity.
+Return 1 Authority from your discard pile to your hand."
+A025+,祭祀+,Sacrifice+,消耗牌库顶上的1张权柄，获得1点临时神力，从弃卡堆中选择1张权柄加入手牌,"Exhaust the top Authority in your draw pile.
+Gain 1 temporary Divinity.
+Return 1 Authority from your discard pile to your hand."
+A026,启示,Revelation,施加2点信仰，使中心的单位可获得神格+1,"Apply 2 Faith.
+The center unit gains +1 Divinity."
+A026+,启示+,Revelation+,施加3点信仰，使中心的单位可获得神格+2,"Apply 3 Faith.
+The center unit gains +2 Divinity."
+A027,降生,Incarnation,"造成2点伤害
+成功杀死该凡人时，该位置生成一个“代行者”","Deal 2 damage.
+If it dies, summon an Apostle here."
+A027+,降生+,Incarnation+,"造成4点伤害
+成功杀死该凡人时，该位置生成一个“代行者”","Deal 4 damage.
+If it dies, summon an Apostle here."
+A028,垂青,Favor,使当日该单位场上施加信仰时，多施加2点信仰值,"This day, Faith applied by this unit is increased by 2."
+A028+,垂青+,Favor+,使当日该单位场上施加信仰时，多施加2点信仰值,"This day, Faith applied by this unit is increased by 2."
+A029,升格,Ascension,当日内，每当“代行者”成功转化1个信徒，该代行者自身神格数值+1,"This day, whenever an Apostle converts a follower, it gains 1 Divinity."
+A029+,升格+,Ascension+,当日内，每当“代行者”成功转化1个信徒，该代行者自身神格数值+2,"This day, whenever an Apostle converts a follower, it gains 2 Divinity."
+A030,神力灌注,Divine Infusion,立即触发一个“代行者”的场上效果3次,Trigger an Apostle's field effect 3 times.
+A030+,神力灌注+,Divine Infusion+,立即触发一个“代行者”的场上效果4次,Trigger an Apostle's field effect 4 times.
+A031,神之呓语,Divine Whisper,使当日该单位场上施加信仰时，同时额外造成等同于信仰值的伤害,"This day, whenever this unit applies Faith, it also deals equal damage."
+A031+,神之呓语+,Divine Whisper+,使当日该单位场上施加信仰时，同时额外造成等同于信仰值的伤害,"This day, whenever this unit applies Faith, it also deals equal damage."
+A032,时间停滞,Time Stop,立即触发场上所有单位的每日开始和每日结束效果一次,Trigger all units' Start of Day and End of Day effects 1 time.
+A032+,时间停滞+,Time Stop+,立即触发场上所有单位的每日开始和每日结束效果一次,[Needs Review] 立即触发场上所有单位的每日开始和每日结束效果一次
+A033,降临,Advent,替换一个4级及以下的场上单位为“化身”,[Needs Review] 替换一个4级及以下的场上单位为“化身”
+A033+,降临+,Advent+,替换一个4级及以下的场上单位为“化身”,[Needs Review] 替换一个4级及以下的场上单位为“化身”
+A034,奉献,Offering,指定一个“代行者”死亡，临时神力+1,"Kill an Apostle.
+Gain 1 temporary Divinity."
+A034+,奉献+,Offering+,指定一个“代行者”死亡，临时神力+2,"Kill an Apostle.
+Gain 2 temporary Divinity."
+A035,飞升,Apotheosis,场上所有“代行者”保留其神格加成，替换成“化身”,"Replace all Apostles with Avatars.
+Keep their Divinity bonuses."
+A035+,飞升+,Apotheosis+,场上所有“代行者”保留其神格加成，替换成“化身”,"Replace all Apostles with Avatars.
+Keep their Divinity bonuses."
+A036,洗礼,Baptism,"施加6点信仰
+成功转化凡人时，该位置生成一个“执行者”","Apply 6 Faith.
+If converted, summon an Executor here."
+A036+,洗礼+,Baptism+,"施加6点信仰
+成功转化凡人时，该位置生成一个“执行者”","Apply 6 Faith.
+If converted, summon an Executor here."
+A037,吟唱,Chant,"指定一个“代行者”或“执行者”，
+“执行者”使他场上效果生效范围扩大到身边所有单位
+“代行者”使他场上效果生效范围扩大到附近所有单位","Choose an Apostle or Executor.
+Expand its field effect radius."
+A037+,吟唱+,Chant+,"指定一个“代行者”或“执行者”，
+“执行者”使他场上效果生效范围扩大到身边所有单位
+“代行者”使他场上效果生效范围扩大到附近所有单位","Choose an Apostle or Executor.
+Expand its field effect radius."
+A038,混沌赋形,Chaos Shaping,"消耗牌库顶上2张权柄
+替换一个3级及以下的场上单位为“代行者”","Exhaust the top 2 Authorities.
+Replace a level 3 or lower unit with an Apostle."
+A038+,混沌赋形+,Chaos Shaping+,"消耗牌库顶上1张权柄
+替换一个3级及以下的场上单位为“代行者”","Exhaust the top Authority.
+Replace a level 3 or lower unit with an Apostle."
+A039,改写命运,Rewrite Fate,使场上所有的“代行者”“执行者”和“化身”随机交换位置,"Randomly swap the positions of all Apostles, Executors, and Avatars."
+A039+,改写命运+,Rewrite Fate+,使场上所有的“代行者”“执行者”和“化身”随机交换位置,"Randomly swap the positions of all Apostles, Executors, and Avatars."
+A040,归来,Return,"使场上一个“代行者”“执行者”或“化身”直接死亡，
+并对其身边单位造成等同于其生命值的伤害","Kill an Apostle, Executor, or Avatar.
+Deal damage to adjacent units equal to its HP."
+A040+,归来+,Return+,"使场上一个“代行者”“执行者”或“化身”直接死亡，
+并对其身边单位造成等同于其生命值的伤害","Kill an Apostle, Executor, or Avatar.
+Deal damage to adjacent units equal to its HP."
+W001,转移,Relocate,使两个指定单位交换位置,Swap the positions of two units.
+W002,追踪,Track,抽1张权柄,Draw 1 Authority card.
+W003,自然疗法,Herbal Remedy,恢复2点生命，下一日结束时再回复2点生命,"Heal 2 HP.
+At the end of next day, heal 2 HP."
+W004,猎海,Sea Hunt,造成8点伤害,Deal 8 damage.
+W005,表演,Performance,当日内，使该单位的场上效果不生效,"This day, this unit's field effect is disabled."
+W101,深渊凝视,Abyssal Gaze,"如果当日结束时在手牌没有被打出，
+会对场上随机1个单位施加1层“缠绕”","If unplayed at end of day, apply 1 Entangle to a random unit."
+U1001,微醺的水手,Tipsy Sailor,每日结束时，随机对身边的一个凡人造成1点生命伤害,"At the end of day, deal 1 damage to a random adjacent mortal."
+U1002,快乐的渔夫,Happy Fisherman,无,None.
+U1003,老船长,Old Captain,"信奉时，生成一艘持续2日的“卡拉克帆船”
+如果场上卡拉克帆船达到最大值
+所有卡拉克帆船持续时间+2日；","On conversion, summon a Carrack for 2 days.
+If at max Carracks, extend all Carracks by 2 days."
+U1004,卡拉克帆船,Carrack,每当有单位移动到卡拉克帆船身边时，该单位获得5点信仰值,"Whenever a unit moves adjacent to this Carrack, it gains 5 Faith."
+U1005,海盗,Pirate,每日结束时，身边随机1个品级不超过他的凡人会消失刷新,"At the end of day, a random adjacent mortal of equal or lower rank is refreshed."
+U1101,“大”海盗,Big Pirate,每日结束时，向弃牌堆中插入一张“深渊凝视”,"At the end of day, shuffle an Abyssal Gaze into your discard pile."
+U1006,瘾君子,Addict,死亡时，获得2点神格分数,"On death, gain 2 Divinity Score."
+U1007,灵活的小偷,Nimble Thief,"每日结束时，身边信仰最高的凡人的信仰值-3（最低为0）；
+死亡时，提供5金币","At the end of day, the highest-Faith adjacent mortal loses 3 Faith.
+On death, gain 5 Gold."
+U1008,势利的女招待,Snobbish Waitress,每日结束时，左侧单位的信仰值上限+3；右侧单位的信仰值+3,"At the end of day, the left unit's Faith cap +3.
+The right unit gains 3 Faith."
+U1009,酒馆老板,Tavern Keeper,"信奉时，生成一座持续2日的“小巷酒馆”，
+如果场上酒馆达到最大值，所有酒馆持续时间+2日；","On conversion, summon an Alley Tavern for 2 days.
+If at max Taverns, extend all Taverns by 2 days."
+U1010,小巷酒馆,Alley Tavern,附近更容易出现“瘾君子”，“小偷”和“微醺的水手”,"Addicts, Thieves, and Tipsy Sailors appear more often nearby."
+U1102,强盗骑士,Bandit Knight,"每日开始时，抢劫30金币；
+第4日结束时，强盗骑士会逃离战场。","At the start of day, steal 30 Gold.
+At the end of Day 4, flee the battlefield."
+U1011,平民,Commoner,无,None.
+U1012,猎人,Hunter,信奉时，手牌增加一张临时权柄“追踪”,"On conversion, add a temporary Track to your hand."
+U1013,焦躁的车夫,Restless Coachman,"每日结束时，随机与身边一个凡人交换位置；
+信奉时，手牌增加一张临时权柄“转移”","At the end of day, swap with a random adjacent mortal.
+On conversion, add a temporary Relocate to your hand."
+U1014,得意的行商,Proud Merchant,信奉时，获得10金币,"On conversion, gain 10 Gold."
+U1015,草药医生,Herbal Doctor,信奉时，手牌增加一张临时权柄“自然疗法”,"On conversion, add a temporary Herbal Remedy to your hand."
+U1016,吟游诗人,Bard,"每日开始时，随机获得身边1个单位的效果；
+吟游诗人不会连续两日获得相同的效果","At the start of day, gain a random adjacent unit's effect.
+Cannot gain the same effect on consecutive days."
+U1017,废墟,Ruins,无法通行的废墟,Impassable terrain.
+U1103,深渊的触须,Abyssal Tentacle,"每日开始时，对附近的随机一名凡人施加“缠绕”。
+死亡效果：获得神格，向抽牌堆中插入1张“深渊凝视”。","At the start of day, apply Entangle to a random nearby mortal.
+Death: Gain Divinity and shuffle an Abyssal Gaze into your draw pile."
+U1104,深海猎手,Deepsea Hunter,"每日开始时，和“深渊的触须”身边的一个随机单位交换位置；
+每日结束时，对附近所有的“深渊的触须”造成相当于自身生命值的伤害，此伤害导致触须死亡不会获得神格奖励。
+信奉时，在手牌加入1张临时权柄“猎海”","At the start of day, swap with a unit adjacent to an Abyssal Tentacle.
+At the end of day, deal damage equal to its HP to nearby Abyssal Tentacles."
+U0001,代行者,Apostle,每日结束时，使身边所有单位信仰+2，自身神格数值+1,"At the end of day, adjacent units gain 2 Faith.
+Gain 1 Divinity."
+U0002,执行者,Executor,使其左右两边的单位，每日开始时/每日结束时的效果额外施加一次,Adjacent units trigger their Start of Day and End of Day effects an additional time.
+U0003,化身,Avatar,每日结束时，生命值-3，信仰上限+3，选择身边神格值最大的单位，自身增加其神格值,"At the end of day, lose 3 HP.
+Faith cap +3.
+Gain Divinity equal to the highest adjacent unit."

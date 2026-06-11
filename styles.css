@@ -263,6 +263,76 @@ button:focus-visible {
   width: 136px;
 }
 
+.changelog {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.48);
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.changelog-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.changelog-head h2 {
+  margin-bottom: 0;
+}
+
+.secondary-button.compact {
+  width: auto;
+  min-height: 34px;
+  margin-top: 0;
+}
+
+.secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.changelog-list {
+  display: grid;
+  gap: 10px;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.changelog-item {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 12px;
+}
+
+.changelog-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.changelog-title time,
+.change-summary,
+.changelog-empty,
+.change-detail {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.changelog-item p {
+  margin-bottom: 6px;
+}
+
+.change-detail {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  line-height: 1.45;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
